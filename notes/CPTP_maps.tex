@@ -1,0 +1,84 @@
+
+
+量子操作を記述する写像$\symcal{E}$の満たすべき性質を箇条書きにしていく. 
+
+\begin{itemize}
+  \item 定義域$\symcal{L}(\symcal{H})$と値域$\symcal{L}(\symcal{H}')$は異なっていても良さそう. 
+  というのも, 例えば入力は3-qubit, 全て測定して潰して出力は状態はないというような過程を考えても良いはずだから. 
+  \item $\symcal{E}$は線型であるべき. 
+  これは密度演算子は状態の古典確率混合であるので, $\symcal{E}$による操作で出てくる密度演算子は元の状態が$\symcal{E}$で遷移したものの同じ確率分布による混合になってほしいから. 
+  \item 物理的には出力も量子状態なので, 少なくとも入力が半正定値演算子なら出力も半正定値であるべきである. 
+  \item さらに, ある系を制御して, その外部系には何もしないような量子操作を考える. 
+  そんな写像は$\symcal{E}\otimes I$でかけるはずである. 
+  このとき定義域は$\symcal{L}(\symcal{H})\otimes\symcal{L}(\symcal{H}_{env})$で, 入力が半正定値なとき出力は同様に半正定値であるはずである. 
+  ちなみに影響を加えない環境は好きなだけ大きい次元をとって構わないはずである. 
+\end{itemize}
+
+以上を踏まえて物理的に実現可能な量子操作は次の写像で表現されると考える. 
+
+\begin{mydfn}[CP写像]\label{dfn.CP-map}
+  $\symcal{E}:\symcal{L}(\symcal{H})\to\symcal{L}(\symcal{H}')$は線型写像とする. 
+  $\symcal{E}$が以下の3つを満たすとき, これをCP写像と呼ぶ（Complete-Positive）. 
+  \begin{enumerate}
+    \item $X$, $Y$を演算子とする. 
+    このとき, $X\geq 0$ならば$\symcal{E}(X)\geq 0$. 
+    この条件を満たせば, その写像はPositiveであるという. 
+    \item $\symcal{E}\otimes I_n$がPositiveである. 
+    これを$n$-positiveと呼ぶ. 
+    \item 任意の$n\in \N$について, $\symcal{E}$は$n$-positive. 
+  \end{enumerate}
+\end{mydfn}
+
+参考のために, PositiveだがCPではない写像の例を挙げる. 
+
+\begin{e.g.}[Positive but not CP]
+  簡単のためにqubit空間$\symcal{H}_2$上で考える. 
+  いつも通り$\{\ket{0}, \ket{1}\}$を正規直交基底とする. 
+  $\symcal{E}_T:\symcal{L}(\symcal{H}_2)\to \symcal{L}(\symcal{H}_2)$を$\symcal{E}_T:\ket{i}\bra{j}\mapsto \ket{j}\bra{i}$な線型写像とする. 
+  これはPositiveである\footnote{$\begin{pmatrix}\alpha^*&\beta^*\end{pmatrix}\begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}\alpha\\ \beta\end{pmatrix}\geq 0$であるとき両辺転置を取れば$\begin{pmatrix}\alpha&\beta\end{pmatrix}\begin{pmatrix}a&c\\b&d\end{pmatrix}\begin{pmatrix}\alpha^*\\ \beta^*\end{pmatrix}\geq 0$}. 
+  次に, $I\otimes \symcal{E}_T$を例えば$\ket{\psi}=\ket{00}+\ket{11}$（規格化は無視）に作用させることを考える. 
+  \begin{equation}
+    \rho_{\psi}=\ket{0}\bra{0}\otimes \ket{0}\bra{0}+\ket{0}\bra{1}\otimes \ket{0}\bra{1}+\ket{1}\bra{0}\otimes \ket{1}\bra{0}+\ket{1}\bra{1}\otimes \ket{1}\bra{1}
+  \end{equation}
+  とかけることに注意すれば, 
+  \begin{align}
+    I\otimes \symcal{E}_T(\rho_{\psi})=\ket{0}\bra{0}\otimes \ket{0}\bra{0}+\ket{0}\bra{1}\otimes \ket{1}\bra{0}+\ket{1}\bra{0}\otimes \ket{0}\bra{1}+\ket{1}\bra{1}\otimes \ket{1}\bra{1}
+    \stackrel{\cdot}{=}\begin{pmatrix}
+      1 & & & \\
+       & 0&1& \\
+       & 1&0& \\
+       &  & &1 \\
+    \end{pmatrix}
+  \end{align}
+  となる. 
+  この行列の固有値は$1,1,1,-1$なので, 確かにこれはCPではない. 
+\end{e.g.}
+
+次にTP（Trace Preserving）を定義する. 
+
+\begin{mydfn}[TP写像]\label{dfn.TP-map}
+  線型写像$\symcal{E}$が任意の演算子$X$について
+  \begin{equation}
+    \tr(\symcal{E}(X))=\tr(X)
+  \end{equation}
+  を満たすとき, これをTPという. 
+  また, 任意の$X\geq 0$について$\tr(\symcal{E}(X))\leq\tr(X)$のとき, $\symcal{E}$はtrace-nonincreasingという. 
+\end{mydfn}
+
+CPTP写像には, 理解が深まる同値な表現がある. 
+
+\begin{mythm}[CPTP写像の同値な表現]\label{thm.CPTP-map}
+  線型写像$\symcal{E}$について, 以下は同値：
+  \begin{enumerate}[(a). ]
+    \item $\symcal{E}$はCPTP写像. 
+    \item $\symcal{E}$は$\sum_{k}M_k^{\dag}M_k=I$を満たすKraus演算子で$\symcal{E}(\rho)=\sum_{k}M_k\rho M_k^{\dag}$とかける. 
+    \item 環境系を表す量子状態$\sigma\in\symcal{S}(\symcal{H}_A)$が存在して, あるUnitary演算子$U:\symcal{H}\otimes \symcal{H}_A\to \symcal{H}'\otimes \symcal{H}_A'$を使って
+      $\symcal{E}(\rho)=\tr_{A'}(U\rho\otimes\sigma U^{\dag})$
+    とかける. 
+    これをStinespring表現という. 
+  \end{enumerate}
+\end{mythm}
+
+\begin{proof}
+  Appendixにかけたら書く. 
+\end{proof}

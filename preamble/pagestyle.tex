@@ -1,0 +1,22 @@
+
+\NewPageStyle{mystyle}{
+  nombre_font={\fontencoding{T1}\fontfamily{pcr}\fontseries{b}\fontshape{n}\selectfont}, 
+  running_head_position=top-left,
+  running_head_ii_position=top-right,
+  mark_format={_section={節 \thesection：#1},_chapter={第 \thechapter 章 \quad #1}},
+  odd_head_format={\underline{\makebox[\jlreqyokoheadlength]{#1}}}, 
+  odd_running_head=_chapter, 
+  odd_running_head_ii=_section
+  }
+
+  \NewPageStyle{nosection}{
+    nombre_font={\fontencoding{T1}\fontfamily{pcr}\fontseries{b}\fontshape{n}\selectfont}, 
+    running_head_position=top-left,
+    mark_format={_chapter={第 \thechapter 章 \quad #1}},
+    odd_head_format={\underline{\makebox[\jlreqyokoheadlength]{#1}}}, 
+    odd_running_head=_chapter
+  }
+
+  \NewPageStyle{TOC}{
+    nombre_font={\fontencoding{T1}\fontfamily{pcr}\fontseries{b}\fontshape{n}\selectfont}, 
+  }

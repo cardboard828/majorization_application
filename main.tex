@@ -1,15 +1,60 @@
-\documentclass{jlreq}
+\documentclass[report]{jlreq}
 \usepackage{luatexja}
+\usepackage{fontspec}
 \usepackage{import}
 \subimport{../preamble}{preamble}
   
-\title{}
+\title{量子情報入門からSingle-Shotの量子熱力学まで}
 \author{森}
-\date{}
+\date{\today}
   
 \begin{document}
 \maketitle
-  
+
+\setcounter{tocdepth}{1}
+\thispagestyle{TOC}
+\tableofcontents
+
+\chapter{量子情報の枠組みミニマム}
+\section{状態}
+\subsection{純粋状態}
+\subsection{混合状態}
+\section{量子操作}
+\subimport{notes/}{CPTP_maps.tex}
+\subsection{モチベーション}
+\subsection{同値な表現}
+\section{測定}
+\subsection{量子測定}
+\subsection{POVM}
+\subsection{応用例：量子状態の識別}
+\section{複合系}
+\section{量子状態間の尺度}
+\subsection{トレース距離}
+\subsection{忠実度}
+\subsection{応用例：クローン不可能定理}
+\section{色々なエントロピー}
+\subsection{von Neumannエントロピー}
+\subsection{量子相対エントロピー}
+\subsection{R\'{e}nyi-αダイバージェンス}
+\subsection{平滑化R\'{e}nyi-αダイバージェンス}
+
+\chapter{量子仮説検定}
+\section{状況設定}
+\section{量子Neyman-Pearson検定}
+\section{漸近論と量子相対エントロピーの創発}
+
+\chapter{Single-Shotの量子熱力学}
+\section{状況設定}
+\section{Exact Case}
+\section{Approximate Case}
+\section{Assymptotic Case}
+
+\appendix
+\chapter{CPTP写像の3つの表現の同値性の証明}
+\chapter{i.i.d.での量子Steinの補題の証明}
+
+
+
 \subimport{notes}{sample.tex}
   
 \begin{thebibliography}{99}
