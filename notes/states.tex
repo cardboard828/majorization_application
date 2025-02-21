@@ -22,5 +22,33 @@ $\symcal{H}$上の量子状態の集合を$\symcal{S}(\symcal{\rho})$と表す�
 \end{myprop}
 \begin{proof}
   $p\in [0,1]$, $\rho, \sigma\in\symcal{S}(\symcal{H})$とする. 
+  トレースの線形性から$\tr[p\rho+(1-p)\sigma]=p\tr[\rho]+(1-p)\tr[\sigma]=1$. 
+  また, 内積の線型性から$\bra{\psi}(p\rho+(1-p)\sigma)\ket{\psi}=p\bra{\psi}\rho\ket{\psi}+(1-p)\bra{\psi}\sigma\ket{\psi}\geq 0$. 
 \end{proof}
+結局, 状態を表す密度演算子の確率混合もちゃんと状態になるようになっている. 
+
+次に以下のように純粋状態と混合状態という概念を導入する. 
+\begin{mydfn}[純粋状態, 混合状態]
+  $\symcal{S}(\symcal{H})$の端点を純粋状態, そうでない元を混合状態と呼ぶ. 
+  ここで$\rho\in\symcal{S}(\symcal{H})$が端点であるとは, これが$\symcal{S}(\symcal{H})$の他の元の非自明な凸結合で表せないことをいう. 
+\end{mydfn}
+
+この定義の意味に触れる前に, 密度演算子がスペクトル分解できることに触れる. 
+\begin{myprop}[スペクトル分解]
+  密度演算子$\rho\in\symcal{S}(\symcal{H})$は$\symcal{H}$を張る正規直交系$\{\ket{\phi}_i\}$で以下のように対角化できる. 
+  \begin{equation}
+    \rho=\sum_{i=1}^d p_i\ket{\phi_i}\bra{\phi_i}
+  \end{equation}
+  ここで$p_i\geq 0$で, $\ket{\phi_i}\bra{\phi_i}$は射影演算子である. 
+\end{myprop}
+\begin{proof}
+  \cite{nielsen2010quantum}の2章を参照. 
+\end{proof}
+
+この命題から, 純粋状態はあるベクトル$\ket{\phi}$で貼られる1次元部分空間への射影演算子だとわかる. 
+また, 1次元部分空間への射影演算子は$\symcal{S}(\symcal{H})$の非自明な凸結合で書けないので, 結局純粋状態は適当な$\ket{\psi}\in\symcal{H}$で指定できる. 
+トレースが1である条件も加味して純粋状態を$\braket{\psi|\psi}=1$と規格化されたベクトル$\ket{\psi}\in\symcal{H}$で表すことも多い\footnote{というか量子力学というとほぼこのベクトルで表される状態を扱っている. だけど数学科の人もいるので「量子状態は一般には$\symcal{S}(\symcal{H})$の元を指す」と言い切った方が分かりやすいと思った. }. 
+
+
+
 
