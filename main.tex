@@ -15,14 +15,18 @@
 \thispagestyle{TOC}
 \tableofcontents
 
+
+\pagestyle{mystyle}
 \chapter{量子情報の枠組みミニマム}
+まず量子情報分野の基本的なルールについて, 以降の章で使うものについて簡単な説明をする. 
+基本的に有限次元の量子力学が舞台になっている. 
+主に\cite{nielsen2010quantum}, \cite{SagawaEntropy}を参考にした. 
+怪しげなことを書いていたら教えて欲しいです. 
+あと「演算子」, 「オペレータ」は適宜「行列」にでも読み替えてもらって大丈夫です. 
 \section{状態}
-\subsection{純粋状態}
-\subsection{混合状態}
+\subimport{notes/}{states.tex}
 \section{量子操作}
 \subimport{notes/}{CPTP_maps.tex}
-\subsection{モチベーション}
-\subsection{同値な表現}
 \section{測定}
 \subsection{量子測定}
 \subsection{POVM}
@@ -47,18 +51,19 @@
 \section{状況設定}
 \section{Exact Case}
 \section{Approximate Case}
-\section{Assymptotic Case}
+\section{Asymptotic Case}
 
 \appendix
 \chapter{CPTP写像の3つの表現の同値性の証明}
 \chapter{i.i.d.での量子Steinの補題の証明}
-
-
-
-\subimport{notes}{sample.tex}
   
 \begin{thebibliography}{99}
-    \bibitem{sample}サンプル
+\bibitem{nielsen2010quantum}Michael A Nielsen and Isaac L Chuang. 
+    \textit{Quantum computation and quantum information}.
+    Cambridge university press, 2010.
+\bibitem{SagawaEntropy}Takahiro Sagawa. 
+    \textit{Entropy, Divergence, and Majorization in Classical and Quantum Thermodynamics}. 
+    Springer Singapore, 2022.
 \end{thebibliography}
   
 \end{document}

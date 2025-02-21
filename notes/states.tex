@@ -1,0 +1,26 @@
+
+まず量子状態を線型代数の言葉を使って表すことから始める. 
+量子システムはHilbert空間$\symcal{H}$で記述される\footnote{内積の入った複素数上の線型空間と思ってもらって大丈夫だと思う...}. 
+$\symcal{H}$に作用する演算子の集合を$\symcal{L}(\symcal{H})$と書く. 
+$d$を$\symcal{H}$の次元とする. 
+
+% 系の\textbf{純粋状態}は以下のように定義される. 
+% \begin{mydfn}[純粋状態]
+%   系の純粋状態は$\braket{\phi|\phi}=1$と規格化されたベクトル$\ket{\phi}\in\symcal{H}$で表される. 
+% \end{mydfn}
+
+一般の量子状態は以下で定める\textbf{密度演算子}によって表される. 
+\begin{mydfn}[量子状態]
+  系の量子状態は$\symcal{H}$に作用する$\tr[\rho]=1$かつ半正定値な演算子$\rho\in\symcal{L}(\symcal{H})$によって表され, $\rho$を密度演算子と呼ぶ. 
+\end{mydfn}
+ここで半正定値とは任意のベクトル$\ket{\psi}\in\symcal{H}$について$\bra{\psi}\rho\ket{\psi}\geq 0$が成立することを意味し, これを$\rho\geq 0$と表す. 
+
+$\symcal{H}$上の量子状態の集合を$\symcal{S}(\symcal{\rho})$と表すことにする. 
+これは凸集合になっている. 
+\begin{myprop}
+  $\symcal{S}(\symcal{H})$は凸集合. 
+\end{myprop}
+\begin{proof}
+  $p\in [0,1]$, $\rho, \sigma\in\symcal{S}(\symcal{H})$とする. 
+\end{proof}
+
