@@ -1,0 +1,25 @@
+
+
+次に量子系の合成系の記述方法を与える. 
+\begin{mydfn}[合成系]\label{dfn:composite_system}
+  量子系$\symcal{H}_a$, $\symcal{H}_b$の合成系はHilbert空間のテンソル積$\symcal{H}_a\otimes\symcal{H}_b$で与えられる. 
+\end{mydfn}
+定義\ref{dfn:quantum_states}より, この合成系の状態は$\symcal{S}(\symcal{H}_a\otimes\symcal{H}_b)$の元で与えられる. 
+
+ついでに\textbf{積状態}, \textbf{セパラブル状態}, \textbf{エンタングル状態}を定義する. 
+
+\begin{mydfn}
+  $\symcal{S}(\symcal{H}_a\otimes\symcal{H}_b)$の元$\rho_{AB}$のうち, $\rho_a\in\symcal{S}(\symcal{H}_a)$, $\rho_b\in\symcal{S}(\symcal{H}_b)$があって$\rho_{AB}=\rho_a\otimes\rho_b$と記述できるものを積状態という. 
+  また, 確率分布$\{r_i\}$と$\rho_a^{(i)}\in\symcal{S}(\symcal{H}_a)$, $\rho_b^{(i)}\in\symcal{S}(\symcal{H}_b)$があって$\rho_{AB}=\sum_{i}r_i\rho_a^{(i)}\otimes\rho_b^{(i)}$と記述できるものをセパラブル状態という. 
+  $\rho_{AB}$がセパラブル状態でないとき, これをエンタングル状態という. 
+\end{mydfn}
+
+部分トレースもここで定義しておく. 
+\begin{mydfn}[部分トレース]
+  部分系$B$を潰す部分トレースは$\tr_B:\symcal{L}(\symcal{H}_A\otimes \symcal{H}_B)\to \symcal{L}(\symcal{H}_A)$の線型写像で$\ket{a_1}, \ket{a_2}\in\symcal{H}_A$, $\ket{b_1}, \ket{b_2}\in\symcal{H}_B$について
+  \begin{equation}
+    \tr_B(\ket{a_1}\bra{a_2}\otimes\ket{b_1}\bra{b_2})\coloneqq\ket{a_1}\bra{a_2}\tr(\ket{b_1}\bra{b_2})
+  \end{equation}
+  と定義される. 
+\end{mydfn}
+これは物理的には合成系$AB$の状態$\rho_{AB}$から部分系$A$についての情報のみを取り出す操作に対応している. 

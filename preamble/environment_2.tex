@@ -1,4 +1,5 @@
 \usepackage[many]{tcolorbox}
+\tcbuselibrary{breakable}
 \newtcolorbox{mybox}{colframe=gray!25, colback=gray!25, sharp corners}
 \newtcolorbox{mybox2}{colframe=gray!10, colback=gray!10, sharp corners}
 \newtcolorbox{mybox3}{colframe=gray!5, colback=gray!5, sharp corners}
@@ -13,25 +14,25 @@ borderline west={1mm}{-11pt}{teal}}
 
 \newenvironment{mydfn}{%
 \begin{dfn}}{\end{dfn}}
-\tcolorboxenvironment{mydfn}{colframe=gray!10, colback=gray!10, sharp corners}%{blanker,
+\tcolorboxenvironment{mydfn}{breakable, colframe=gray!10, colback=gray!10, sharp corners}%{blanker,
 % before skip=6pt,after skip=6pt,
 % borderline west={1mm}{-11pt}{gray}}
 
 \newenvironment{mythm}{%
 \begin{thm}}{\end{thm}}
-\tcolorboxenvironment{mythm}{colframe=gray!20, colback=gray!20, sharp corners}%{blanker,
+\tcolorboxenvironment{mythm}{breakable, colframe=gray!20, colback=gray!20, sharp corners}%{blanker,
 % before skip=6pt,after skip=6pt,
 % borderline west={1mm}{-11pt}{black}}
 
 \newenvironment{myprop}{%
 \begin{prop}}{\end{prop}}
-\tcolorboxenvironment{myprop}{colframe=gray!20, colback=gray!20, sharp corners}%{blanker,
+\tcolorboxenvironment{myprop}{breakable, colframe=gray!20, colback=gray!20, sharp corners}%{blanker,
 % before skip=6pt,after skip=6pt,
 % borderline west={1mm}{-11pt}{gray}}
 
 \newenvironment{mylem}{%
 \begin{lem}}{\end{lem}}
-\tcolorboxenvironment{mylem}{colframe=gray!10, colback=gray!10, sharp corners}%{blanker,
+\tcolorboxenvironment{mylem}{breakable, colframe=gray!10, colback=gray!10, sharp corners}%{blanker,
 % before skip=6pt,after skip=6pt,
 % borderline west={1mm}{-11pt}{gray!50}}
 

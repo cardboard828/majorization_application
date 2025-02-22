@@ -9,7 +9,8 @@
     \item $X$, $Y$を演算子とする. 
     このとき, $X\geq 0$ならば$\symcal{E}(X)\geq 0$. 
     この条件を満たせば, その写像はPositiveであるという. 
-    \item $\symcal{E}\otimes I_n$がPositiveである. 
+    \item $n$次元Hilbert空間を$\symcal{H}_n$として, $\symcal{I}_n$を$\symcal{L}(\symcal{H}_n)$上の恒等演算子とする. 
+    このとき, $\symcal{E}\otimes \symcal{I}_n$がPositiveとなる. 
     これを$n$-positiveと呼ぶ. 
     \item 任意の$n\in \N$について, $\symcal{E}$は$n$-positive. 
   \end{enumerate}
@@ -51,6 +52,7 @@
   また, 任意の$X\geq 0$について$\tr(\symcal{E}(X))\leq\tr(X)$のとき, $\symcal{E}$はtrace-nonincreasingという. 
 \end{mydfn}
 
+CPかつTPな写像のことをCPTP写像と呼ぶ. 
 CPTP写像には, 理解が深まる同値な表現がある. 
 
 \begin{mythm}[CPTP写像の同値な表現]\label{thm.CPTP-map}
@@ -58,8 +60,8 @@ CPTP写像には, 理解が深まる同値な表現がある.
   \begin{enumerate}[(a). ]
     \item $\symcal{E}$はCPTP写像. 
     \item $\symcal{E}$は$\sum_{k}M_k^{\dag}M_k=I$を満たすKraus演算子で$\symcal{E}(\rho)=\sum_{k}M_k\rho M_k^{\dag}$とかける. 
-    \item 環境系を表す量子状態$\sigma\in\symcal{S}(\symcal{H}_A)$が存在して, あるUnitary演算子$U:\symcal{H}\otimes \symcal{H}_A\to \symcal{H}'\otimes \symcal{H}_A'$を使って
-      $\symcal{E}(\rho)=\tr_{A'}(U\rho\otimes\sigma U^{\dag})$
+    \item 環境系を表す量子状態$\sigma\in\symcal{S}(\symcal{H}_e)$が存在して, あるUnitary演算子$U:\symcal{H}\otimes \symcal{H}_e\to \symcal{H}'\otimes \symcal{H}_e'$を使って
+      $\symcal{E}(\rho)=\tr_{e'}(U\rho\otimes\sigma U^{\dag})$
     とかける. 
     これをStinespring表現という. 
   \end{enumerate}
