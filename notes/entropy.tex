@@ -1,0 +1,19 @@
+
+この節では後の章で登場する色々なエントロピーを定義する. 
+情報理論では情報源の持つ平均情報量を定量化するShannonエントロピーが本質的に重要で, そこから相対エントロピー（KLダイバージェンス）等の概念が生まれたが, 以下のエントロピーはそれらを量子論に拡張したものになっている. 
+
+\begin{mydfn}[von Neumann エントロピー]\label{dfn.vonNeumannEntropy}
+  次元$d$のvon Neumann エントロピー$S_1(\rho)$は次のように定義される. 
+  \begin{equation}
+    S_1(\rho)\coloneqq -\tr(\rho\ln{\rho})
+  \end{equation}
+\end{mydfn}
+
+\begin{mydfn}[量子KLダイバージェンス]\label{dfn.KLdiv}
+  次元$d$の量子KLダイバージェンス$S_1(\rho||\sigma)$は次のように定義される. 
+  \begin{equation}
+    S_1(\rho||\sigma)\coloneqq \tr(\rho\ln{\rho}-\rho\ln{\sigma})
+  \end{equation}
+  ここで$\rho$の台は$\sigma$のそれに包含されていると考える. 
+  すなわち, $\Ker{\sigma}\subset \Ker{\rho}$とする.
+\end{mydfn}
