@@ -1,0 +1,34 @@
+
+
+以上は量子論の公理チックな話だった. 
+次に, 半ば人為的に「量子状態が似ているかどうか」を定量化するための尺度として距離空間の公理を満たす関数を導入する. 
+
+まず, トレース・ノルム
+\footnote{$X^{\dag}X$は半正定値な演算子なので, 固有値が0以上なスペクトル分解ができ, その固有値の平方根のうち正のものをとって対角に並べたものを$\sqrt{X^\dag X}$としている. }
+を定義する. 
+\begin{mydfn}[トレース・ノルム]\label{dfn.trace_norm}
+$X\in\symcal{L}(\symcal{H})$とする. 
+$||X||_1\coloneqq \tr (|X|)=\tr\sqrt{X^\dag X}$. 
+\end{mydfn}
+これがノルムになっているかの証明は省略するが, 例えば\cite{nielsen2010quantum}の9章に証明がある. 
+このノルムを使ってトレース距離を定義する. 
+
+\begin{mydfn}[トレース距離]
+  $\rho, \sigma\in\symcal{S}(\symcal{H})$とする. 
+  このときトレース距離を以下のように定義する. 
+  \begin{equation}
+    D(\rho, \sigma)\coloneqq \frac{1}{2}||\rho-\sigma||_1. 
+  \end{equation}
+\end{mydfn}
+
+天下り的に定義を与えたが, このトレース距離は距離になるだけでなく, 色々な良い性質
+\footnote{例えば, これは実は結構自然な距離であることがqubitのBloch表現からわかる. 
+$\rho_1=\frac{I+\vec{r_1}\cdot\vec{\sigma}}{2}$, $\rho_2=\frac{I+\vec{r_2}\cdot\vec{\sigma}}{2}$とqubit状態をBloch表示する. 
+ここで$\vec{\sigma}=(\sigma_1,\sigma_2,\sigma_3)$は3つのPauli行列である. 
+これをトレース距離の定義に代入すると, 
+$D(\rho_1,\rho_2)=\frac{1}{4}||(\vec{r_1}-\vec{r_2})\cdot\vec{\sigma}||_1=\frac{|\vec{r_1}-\vec{r_2}|}{4}||\vec{n}\cdot\vec{\sigma}||_1=\frac{|\vec{r_1}-\vec{r_2}|}{2}$
+となる. 
+ここで, $\vec{n}$は単位ベクトルで, $\vec{n}\cdot\vec{\sigma}$は$\vec{n}$方向のスピン演算子であること, およびその固有値は$1, -1$であることを使った. 
+要は, 1-qubitで考えるとトレース距離はBlochベクトルの3次元Euclid距離（の半分）となっている. }
+を持っている. 
+しかし, 今回は省略する. 

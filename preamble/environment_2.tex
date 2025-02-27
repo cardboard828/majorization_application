@@ -36,6 +36,10 @@ borderline west={1mm}{-11pt}{teal}}
 % before skip=6pt,after skip=6pt,
 % borderline west={1mm}{-11pt}{gray!50}}
 
+\newenvironment{myrem}{%
+\begin{rem}}{\end{rem}}
+\tcolorboxenvironment{myrem}{breakable, colframe=red!10, colback=red!10, sharp corners}
+
 \usepackage{amsthm}
 \theoremstyle{definition}
 \newtheorem{dfn}{定義}[section]

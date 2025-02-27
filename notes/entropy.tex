@@ -1,19 +1,43 @@
 
 この節では後の章で登場する色々なエントロピーを定義する. 
 情報理論では情報源の持つ平均情報量を定量化するShannonエントロピーが本質的に重要で, そこから相対エントロピー（KLダイバージェンス）等の概念が生まれたが, 以下のエントロピーはそれらを量子論に拡張したものになっている. 
+以下では$\rho, \sigma\in\symcal{S}(\symcal{H})$とする. 
+
+
 
 \begin{mydfn}[von Neumann エントロピー]\label{dfn.vonNeumannEntropy}
-  次元$d$のvon Neumann エントロピー$S_1(\rho)$は次のように定義される. 
+  von Neumann エントロピー$S_1(\rho)$は次のように定義される. 
   \begin{equation}
     S_1(\rho)\coloneqq -\tr(\rho\ln{\rho})
   \end{equation}
 \end{mydfn}
 
 \begin{mydfn}[量子KLダイバージェンス]\label{dfn.KLdiv}
-  次元$d$の量子KLダイバージェンス$S_1(\rho||\sigma)$は次のように定義される. 
+  量子KLダイバージェンス$S_1(\rho||\sigma)$は次のように定義される. 
   \begin{equation}
     S_1(\rho||\sigma)\coloneqq \tr(\rho\ln{\rho}-\rho\ln{\sigma})
   \end{equation}
   ここで$\rho$の台は$\sigma$のそれに包含されていると考える. 
   すなわち, $\Ker{\sigma}\subset \Ker{\rho}$とする.
+\end{mydfn}
+
+\begin{mydfn}[R\'{e}nyi-αダイバージェンス]
+  $\alpha=0, \infty$について, R\'{e}nyi-αダイバージェンス$S_{\alpha}(\rho||\sigma)$を以下のように定義する. 
+  \begin{equation}
+    S_{0}(\rho||\sigma)\coloneqq -\ln\left( \tr[P_{\rho}\sigma] \right), \quad S_{\infty}(\rho||\sigma)\coloneqq \ln\left( \min\{\lambda: \rho\leq \lambda\sigma\} \right)
+  \end{equation}
+  ここで$P_{\rho}$は$\rho$の台への射影演算子である. 
+\end{mydfn}
+
+\begin{mydfn}[平滑化R\'{e}nyi 0/∞-ダイバージェンス]
+  $\rho\in\symcal{S}(\symcal{H})$の$\varepsilon$近傍を
+  \begin{equation}
+    B^{\varepsilon}(\rho)\coloneqq \{\tau: D(\tau, \rho)\leq \varepsilon, \tr[\tau]=1, \tau\geq 0\}
+  \end{equation}
+  とする. 
+  これを使って, 平滑化R\'{e}nyi 0/∞-ダイバージェンスは以下のように定義される. 
+  \begin{align}
+    S_{\infty}^{\varepsilon}(\rho||\sigma)&\coloneqq \min_{\tau\in B^{\varepsilon}(\rho)}S_{\infty}(\tau||\sigma), \label{dfn.smoothed_Renyi_infty_div}\\
+    S_{0}^{\varepsilon}(\rho||\sigma)&\coloneqq \max_{\tau\in B^{\varepsilon}(\rho)}S_{0}(\tau||\sigma). \label{dfn.smoothed_Renyi_0_div}
+  \end{align}
 \end{mydfn}

@@ -17,7 +17,7 @@
 
 
 \pagestyle{mystyle}
-\chapter{量子情報の枠組みミニマム}
+\chapter{量子情報の枠組みミニマム}\label{chap.quantum_info_basic}
 まず量子情報分野の基本的なルールについて, 以降の章で使うものについて簡単な説明をする. 
 基本的に有限次元の量子力学が舞台になっている. 
 主に\cite{nielsen2010quantum}, \cite{SagawaEntropy}を参考にした. 
@@ -32,24 +32,28 @@
 \section{測定}
 \subimport{notes/}{measurement.tex}
 \section{量子状態間の尺度}
-\subsection{トレース距離}
-\subsection{忠実度}
-\subsection{応用例：クローン不可能定理}
+\subimport{notes/}{distance.tex}
+% \subsection{忠実度}
+% \subsection{応用例：クローン不可能定理}
 \section{色々なエントロピー}
 \subimport{notes/}{entropy.tex}
-\subsection{von Neumannエントロピー}
-\subsection{量子相対エントロピー}
-\subsection{R\'{e}nyi-αダイバージェンス}
-\subsection{平滑化R\'{e}nyi-αダイバージェンス}
 
-\chapter{量子仮説検定}
-\section{状況設定}
-\section{量子Neyman-Pearson検定}
-\section{漸近論と量子相対エントロピー}
+% \chapter{量子仮説検定}
+% \section{状況設定}
+% \section{量子Neyman-Pearson検定}
+% \section{漸近論と量子相対エントロピー}
 
 \chapter{Single-Shotの量子熱力学}
-\section{状況設定}
+この章では\ref{chap.quantum_info_basic}章で導入した概念を使って, 量子熱力学の文脈でのSingle-Shotの変換理論の話をする. 
+Single-Shotの変換理論とは, 「ある状態を持っていて, それを別の状態に, 特定のクラスの操作で変換できるかどうか」を考える理論のことを指す
+\footnote{田﨑熱力学で強調されていることだが, （古典）熱力学においてエントロピーは状態間の断熱変化可能性を完全に特徴づけていた. 
+すなわち, 断熱操作の元で系のエントロピーは増加するし, エントロピーが増加するような状態であればうまい断熱操作が存在してその状態を作ることができる. }. 
+この問題を考えることで, 状態遷移に必要な仕事の下界や, 遷移に伴って得られるエネルギーの上界を得ることができる. 
+
+\section{状況設定}\label{sec.Single-Shot_quantumthermo}
+\subimport{notes/}{Single-Shot_quantumthermo.tex}
 \section{Exact Case}
+\subimport{notes/}{exact_case.tex}
 \section{Approximate Case}
 \section{Asymptotic Case}
 
@@ -64,6 +68,12 @@
 \bibitem{SagawaEntropy}Takahiro Sagawa. 
     \textit{Entropy, Divergence, and Majorization in Classical and Quantum Thermodynamics}. 
     Springer Singapore, 2022.
+\bibitem{SagawaSaizensen}沙川貴大
+    「非平衡統計力学 -ゆらぎの熱力学から情報熱力学まで-」
+    共立出版, 2022. 
+\bibitem{PhysLabResource}渡邉開人
+    「Physics Lab. 2023 熱力学とリソース」
+    \url{https://event.phys.s.u-tokyo.ac.jp/physlab2023/pdf/sta-article01.pdf}
 \end{thebibliography}
   
 \end{document}

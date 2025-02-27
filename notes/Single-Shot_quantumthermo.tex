@@ -1,0 +1,46 @@
+
+まず, 逆温度$\beta$の熱浴に接した量子系のGibbs状態を考える. 
+\begin{mydfn}[Gibbs状態]
+  系のHamiltonianを$\hat{H}$とするとき, Gibbs状態$\hat{\rho}^G\in\symcal{S}(\symcal{H})$を
+  \begin{equation}
+    \hat{\rho}^G\coloneqq e^{-\beta\hat{H}}/Z, \quad  Z\coloneqq \tr[e^{-\beta\hat{H}}]
+  \end{equation}
+  と定義する. 
+\end{mydfn}
+以下ではこのGibbs状態を考えている量子系の熱平衡状態だと思うことにする
+\footnote{今考えているのはマクロな熱浴に接したミクロな熱力学系で, そのような系について熱平衡状態が$\hat{\rho}^G$になることは実験的にも確かめられている（らしい）\cite{SagawaSaizensen}. 学部でやる平衡統計力学とは扱う対象のスケールが異なっている. }. 
+つまり, 系を熱浴に接したまま十分時間放置したら, 状態は$\hat{\rho}^{G}$になるものだと思う.  
+
+このGibbs状態を不変に保つようなクラスの操作として, Gibbs保存写像を定義する. 
+\begin{mydfn}[Gibbs保存写像]
+  Hamiltonianが$\hat{H}$で与えられるような, 逆温度$\beta$の熱浴に接した系に働くCPTP写像$\symcal{E}$について, $\symcal{E}(\hat{\rho}^G)=\hat{\rho}^G$であるとき, $\symcal{E}$をGibbs保存写像と呼ぶ. 
+\end{mydfn}
+
+次に, 仕事浴を用意する. 
+Single-Shotの枠組みでは簡単のために仕事浴は2準位系が担うものとする. 
+仕事浴の2つのエネルギー固有状態を$\{\ket{E_i}, \ket{E_f}\}$とし, そのエネルギー差を$w$と書く. 
+始状態が励起状態, 終状態が基底状態であれば$w>0$, 逆であれば$w<0$とする. 
+この仕事浴の系のGibbs状態を以下では$\hat{\rho}_{\text{W}}^{G}$と書く. 
+この仕事浴の状態遷移に伴い放出される$w$が系に受け渡されるものと考える. 
+
+以上の状況設定の概念図を書くとすれば, 以下の図\ref{fig:Single-Shot_quantumtherm}のようになる. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[keepaspectratio, scale=0.04]{images/Single-Shot_quantumthermo.drawio.png}
+  \caption{Single-Shotの熱力学の概念図. \cite{PhysLabResource}を参考にした. }
+  \label{fig:Single-Shot_quantumtherm}
+\end{figure}
+
+このとき, システム系（以下S系と書く）と仕事浴とを合わせた系全体のGibbs状態は$\hat{\rho}_{SW}^G\coloneqq\hat{\rho}_{\text{S}}^G\otimes\hat{\rho}_{\text{W}}^G$となる. 
+
+この章の残りの節では, 以上のような状況設定の中で, 始状態$\hat{\rho}_i\in\symcal{S}(\symcal{H}_{\text{S}}\otimes\symcal{H}_{\text{W}})$を指定した終状態$\hat{\rho}_{f}$に写像するGibbs保存写像が存在するかどうか, について色々と条件を変えて議論する. 
+物理状態を密度演算子, 量子系の操作をCPTP写像と考えることで, Single-Shotの物理を「ある密度演算子を欲しい密度演算子にmapするような, 特定の条件を満たすCPTP写像が存在するか」で議論できるようになった. 
+
+\begin{myrem}
+  このpdfでは始状態, 終状態でシステムのHamiltonianは変わらないものとする. 
+  つまり, 考えるシステムの状態遷移は, (i)Gibbs状態から非平衡状態, (ii)非平衡状態からGibbs状態, (iii)非平衡状態から別の非平衡状態, の3パターンである. 
+  しかし, 実はClock系と呼ばれる, 自律的にシステムのHamiltonianを切り替えてくれる補助系をシステムにくっつけることで, 異なるHamiltonianの間の平衡状態遷移可能性も議論することができる\cite{SagawaEntropy}. 
+  今回のpdfでは簡便のためにC系なしで考えられる, (i), (ii)に絞って議論する. 
+\end{myrem}
+
