@@ -5,10 +5,62 @@
 つまり, 用意した状態を, 厳密に欲しい状態と一致するような状態に変換できるかどうかを議論する. 
 
 \begin{mydfn}[Single-Shot work-assisted state transformation]
-  $\hat{\rho}_\text{S}, \hat{\rho}_\text{S}'\in\symcal{S}(\symcal{H}_{\text{S}})$について, $\hat{\rho}_{\text{SW}}^G$についてのGibbs保存写像$\symcal{E}_{\text{SW}}$が存在して, 
+  $\hat{\rho}_{\text{S}}$, $\hat{\rho}_{\text{S}}'$をそれぞれS系のHamiltonianが$H_{\text{S}}$, $H_{\text{S}}'$であるような状態とする. 
+  $\hat{\rho}_{\text{SCW}}^G$についてのGibbs保存写像$\symcal{E}_{\text{SCW}}$が存在して, 
   \begin{equation}
-    \symcal{E}_{\text{SW}}(\hat{\rho}_{\text{S}}\otimes\ket{E_i}\bra{E_i})=\hat{\rho}_{\text{S}}'\otimes\ket{E_f}\bra{E_f}
+    \symcal{E}_{\text{SCW}}(\hat{\rho}_{\text{S}}\otimes\ket{0}\bra{0}\otimes\ket{E_i}\bra{E_i})=\hat{\rho}_{\text{S}}'\otimes\ket{1}\bra{1}\otimes\ket{E_f}\bra{E_f}
   \end{equation}
-  を満たすとき, $\hat{\rho}_\text{S}$は$\hat{\rho}_\text{S}'$にw-assisted transformableという. 
+  を満たすとき, $\hat{\rho}_\text{S}$は$\hat{\rho}_\text{S}'$に$w$-assisted transformableという. 
 \end{mydfn}
+
+この$\hat{\rho}_\text{S}$は$\hat{\rho}_\text{S}'$に$w$-assisted transformableであるための必要条件/十分条件を\ref{sec.entropy}節で導入したR\'{e}nyi-αダイバージェンスを使って与えることができる. 
+以下, $F_{\text{S}}$をS系のHamiltonianが$H_{\text{S}}$のときのHelmholtzの自由エネルギーとし, $\Delta F_{\text{S}}\coloneqq F_{\text{S}}'-F_{\text{S}}$とする. 
+
+\begin{mythm}[Single-Shot work bounds]\label{thm.exact-case_single-shot_work_bounds}
+  $\hat{\rho}_{\text{S}}$, $\hat{\rho}_{\text{S}}'$をそれぞれS系のHamiltonianが$H_{\text{S}}$, $H_{\text{S}}'$であるような状態とする. 
+  \begin{enumerate}
+    \item[(a)]（必要条件）: $\hat{\rho}_\text{S}$は$\hat{\rho}_\text{S}'$に$w$-assisted transformableならば, $\alpha=0, 1, \infty$について
+    \begin{equation}
+      \beta(w-\Delta F_{\text{S}})\geq S_\alpha (\hat{\rho}_{\text{S}}{}'||\hat{\rho}_{\text{S}}^{G}{}')-S_\alpha (\hat{\rho}_{\text{S}}||\hat{\rho}_{\text{S}}^G)
+    \end{equation}
+    が成立. 
+    \item[(b)]（十分条件）: $\hat{\rho}_{\text{S}}$, $\hat{\rho}_{\text{S}}'$について
+    \begin{equation}
+      \beta(w-\Delta F_{\text{S}})\geq S_\infty (\hat{\rho}_{\text{S}}{}'||\hat{\rho}_{\text{S}}^{G}{}')-S_0 (\hat{\rho}_{\text{S}}||\hat{\rho}_{\text{S}}^G)
+    \end{equation}
+    ならば, $\hat{\rho}_\text{S}$は$\hat{\rho}_\text{S}'$に$w$-assisted transformableである. 
+  \end{enumerate}
+\end{mythm}
+
+\begin{proof}
+  \cite{SagawaEntropy}を参照. 
+\end{proof}
+
+S系のHamiltonianが変換前後で変わらず, %かつ(i) $\hat{\rho}_{\text{S}}$を$\hat{\rho}_{\text{S}}^G$に変換, (ii) $\hat{\rho}_{\text{S}}^G$を$\hat{\rho}_{\text{S}}$に変換, 
+\begin{enumerate}
+  \item $\hat{\rho}_{\text{S}}$を$\hat{\rho}_{\text{S}}^G$に変換
+  \item $\hat{\rho}_{\text{S}}^G$を$\hat{\rho}_{\text{S}}$に変換
+\end{enumerate}
+の2パターンについて考えてみる. 
+このとき, 定義\ref{dfn.Gibbs-state_Free-energy}より$\Delta F=0$である. 
+また, 今$\hat{\rho}_{\text{S}}^{G}{}'=\hat{\rho}_{\text{S}}^{G}$に注意する. 
+また, 定理\ref{thm.Renyi-alpha-div_alpha-increasing}より$\rho=\sigma\implies S_{\alpha}(\rho||\sigma)=0$である. 
+
+1. の場合について, 定理\ref{thm.Renyi-alpha-div_alpha-increasing}の不等式より必要条件の不等式は$\beta w\geq -S_0(\hat{\rho}_{\text{S}}||\hat{\rho}_{\text{S}}^{G})$と書き直される. 
+一方, 十分条件の不等式もこれと全く同じ. 
+よって$\hat{\rho}_\text{S}$が$\hat{\rho}_\text{S}^G$に$w$-assisted transformableであることの必要十分条件は
+\begin{equation}
+  \beta (-w)\leq S_0(\hat{\rho}_{\text{S}}||\hat{\rho}_{\text{S}}^{G})
+\end{equation}
+が成立することだといえる. 
+$w<0$はW系の基底状態が励起されること, つまり仕事浴に仕事が蓄えられることを意味すると思うと, これはS系の状態が非平衡状態から平衡状態に落ち着くときに取り出せる仕事（の$\beta$倍）は始状態と終状態のR\'{e}nyi-0ダイバージェンスで上から押さえられるとわかる. 
+
+2. の場合について, 1. の時と同じように考えると$\hat{\rho}_\text{S}^G$が$\hat{\rho}_\text{S}$に$w$-assisted transformableであることの必要十分条件は
+\begin{equation}
+  \beta w\geq S_{\infty}(\hat{\rho}_{\text{S}}||\hat{\rho}_{\text{S}}^{G})
+\end{equation}
+が成立することだといえる. 
+$w$はS系に仕事浴が与えるエネルギーだったので, これはS系を平衡状態から所望の非平衡状態にするために必要な仕事は$S_{\infty}(\hat{\rho}_{\text{S}}||\hat{\rho}_{\text{S}}^{G})$で下から押さえられるとわかる. 
+
+
 

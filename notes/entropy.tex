@@ -2,6 +2,7 @@
 この節では後の章で登場する色々なエントロピーを定義する. 
 情報理論では情報源の持つ平均情報量を定量化するShannonエントロピーが本質的に重要で, そこから相対エントロピー（KLダイバージェンス）等の概念が生まれたが, 以下のエントロピーはそれらを量子論に拡張したものになっている. 
 以下では$\rho, \sigma\in\symcal{S}(\symcal{H})$とする. 
+なお, $\rho$の台は常に$\sigma$の台に含まれているものとする. 
 
 
 
@@ -21,7 +22,7 @@
   すなわち, $\Ker{\sigma}\subset \Ker{\rho}$とする.
 \end{mydfn}
 
-\begin{mydfn}[R\'{e}nyi-αダイバージェンス]
+\begin{mydfn}[R\'{e}nyi-αダイバージェンス]\label{dfn.Renyi-alpha-div}
   $\alpha=0, \infty$について, R\'{e}nyi-αダイバージェンス$S_{\alpha}(\rho||\sigma)$を以下のように定義する. 
   \begin{equation}
     S_{0}(\rho||\sigma)\coloneqq -\ln\left( \tr[P_{\rho}\sigma] \right), \quad S_{\infty}(\rho||\sigma)\coloneqq \ln\left( \min\{\lambda: \rho\leq \lambda\sigma\} \right)
@@ -29,7 +30,26 @@
   ここで$P_{\rho}$は$\rho$の台への射影演算子である. 
 \end{mydfn}
 
-\begin{mydfn}[平滑化R\'{e}nyi 0/∞-ダイバージェンス]
+この$\alpha=0, \infty$のR\'{e}nyi-αダイバージェンスについて, 以下の定理が知られている. 
+
+\begin{mythm}\label{thm.Renyi-alpha-div_alpha-increasing}
+  \begin{equation}
+    0\leq S_0(\rho||\sigma)\leq S_1(\rho||\sigma)\leq S_\infty(\rho||\sigma)
+  \end{equation}
+  ここで, $S_0(\rho||\sigma)=0$が成立$\iff$ $\rho$と$\sigma$の台が等しいときである. 
+  また, $S_1(\rho||\sigma)=S_\infty(\rho||\sigma)=0$が成立$\iff$ $\rho=\sigma$のとき. 
+\end{mythm}
+
+\begin{proof}
+  前半の不等式は\cite{SagawaEntropy}を参照. 
+  後半の等号成立条件を検討する. 
+  この説の仮定$\Ker{\sigma}\leq\Ker{\rho}$より, $S_0(\rho||\sigma)=0\iff \tr[P_{\rho}\sigma]=1\iff \Ker{\sigma}=\Ker{\rho}$, よって一つ目の条件は示された. 
+  二つ目について. 
+  $\rho=\sigma$のとき, 定義\ref{dfn.Renyi-alpha-div}より$S_{\infty}(\rho||\sigma)=0$であり, かつ$\rho$と$\sigma$の台が等しい, つまり$S_0(\rho||\sigma)=0$なので, 不等式より$S_1(\rho||\sigma)=0$. 
+  また, $S_{\infty}(\rho||\sigma)=0$のとき, つまり$\rho\leq\sigma$な訳だが, どちらもトレース1なので, $\rho=\sigma$となるしかない. 
+\end{proof}
+
+\begin{mydfn}[平滑化R\'{e}nyi 0/∞-ダイバージェンス]\label{dfn.smoothed_Renyi-alpha-div}
   $\rho\in\symcal{S}(\symcal{H})$の$\varepsilon$近傍を
   \begin{equation}
     B^{\varepsilon}(\rho)\coloneqq \{\tau: D(\tau, \rho)\leq \varepsilon, \tr[\tau]=1, \tau\geq 0\}

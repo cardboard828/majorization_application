@@ -1,11 +1,16 @@
 
-まず, 逆温度$\beta$の熱浴に接した量子系のGibbs状態を考える. 
-\begin{mydfn}[Gibbs状態]
+まず, 逆温度$\beta$の熱浴に接した量子系のGibbs状態, Helmholtzの自由エネルギーを考える. 
+\begin{mydfn}[Gibbs状態, Helmholtzの自由エネルギー]\label{dfn.Gibbs-state_Free-energy}
   系のHamiltonianを$\hat{H}$とするとき, Gibbs状態$\hat{\rho}^G\in\symcal{S}(\symcal{H})$を
   \begin{equation}
     \hat{\rho}^G\coloneqq e^{-\beta\hat{H}}/Z, \quad  Z\coloneqq \tr[e^{-\beta\hat{H}}]
   \end{equation}
   と定義する. 
+  さらに, その系のHelmholtzの自由エネルギーを
+  \begin{equation}
+    F\coloneqq -\beta^{-1}\ln{Z}
+  \end{equation}
+  とする. 
 \end{mydfn}
 以下ではこのGibbs状態を考えている量子系の熱平衡状態だと思うことにする
 \footnote{今考えているのはマクロな熱浴に接したミクロな熱力学系で, そのような系について熱平衡状態が$\hat{\rho}^G$になることは実験的にも確かめられている（らしい）\cite{SagawaSaizensen}. 学部でやる平衡統計力学とは扱う対象のスケールが異なっている. }. 
@@ -24,18 +29,18 @@ W系のGibbs状態を以下では$\hat{\rho}_{\text{W}}^{G}$と書く.
 W系の状態遷移に伴い放出される$w$が系に受け渡されるものと考える. 
 
 最後にclock系（以下, C系と略す）を用意する. 
-これは自律的にシステム系（以下, S系と略す）のHamiltonianを$\hat{H}_\text{S}$から$\hat{H}_\text{S'}$に変えるためのシステムにくっつける補助系で, 簡単のために2次元$\{\ket{0}, \ket{1}\}$とする（これは正規直交するとする）. 
+これは自律的にシステム系（以下, S系と略す）のHamiltonianを$\hat{H}_\text{S}$から$\hat{H}_\text{S}'$に変えるためのシステムにくっつける補助系で, 簡単のために$\{\ket{0}, \ket{1}\}$で張られるとする（これは正規直交するとする）. 
 C系は基本的に$\ket{0}$の状態から$\ket{1}$の状態に移るものとする. 
 また, この2つの状態の間にエネルギー差はないとする. 
 そして, S系とC系を合わせたSC系のHamiltonianが以下で与えられるとする. 
 \begin{equation}
-  \hat{H}_{\text{SC}}=\hat{H}_{\text{S}}\otimes\ket{0}\bra{0}+\hat{H}_{\text{S'}}\otimes\ket{1}\bra{1}
+  \hat{H}_{\text{SC}}=\hat{H}_{\text{S}}\otimes\ket{0}\bra{0}+\hat{H}_{\text{S}}'\otimes\ket{1}\bra{1}
 \end{equation}
-これにより, 始めはC系の状態が$\ket{0}$なので状態に効くHamiltonianは$\hat{H}_{\text{S}}\otimes\ket{0}\bra{0}$で, 終わりはC系の状態が$\ket{1}$なので状態に効くHamiltonianは$\hat{H}_{\text{S}'}\otimes\ket{1}\bra{1}$で, S系のHamiltonianがうまく切り替わっている. 
-さらに$\ket{0}$と$\ket{1}$の直交性から$[\hat{H}_{\text{S}}\otimes\ket{0}\bra{0}, \hat{H}_{\text{S'}}\otimes\ket{1}\bra{1}]=0$なのでSC系のGibbs状態は
+これにより, 始めはC系の状態が$\ket{0}$なので状態に効くHamiltonianは$\hat{H}_{\text{S}}\otimes\ket{0}\bra{0}$で, 終わりはC系の状態が$\ket{1}$なので状態に効くHamiltonianは$\hat{H}_{\text{S}}'\otimes\ket{1}\bra{1}$で, S系のHamiltonianがうまく切り替わっている. 
+さらに$\ket{0}$と$\ket{1}$の直交性から$[\hat{H}_{\text{S}}\otimes\ket{0}\bra{0}, \hat{H}_{\text{S}}'\otimes\ket{1}\bra{1}]=0$なのでSC系のGibbs状態は
 \begin{align}
-  \hat{\rho}_{\text{SC}}^G&=\exp(-\beta\hat{H}_{\text{S}}\otimes\ket{0}\bra{0})\exp(-\beta\hat{H}_{\text{S'}}\otimes\ket{1}\bra{1})\\
-  &=\exp(-\beta\hat{H}_{\text{S}})\otimes\ket{0}\bra{0}+\exp(-\beta\hat{H}_{\text{S}'})\otimes\ket{1}\bra{1}
+  \exp(-\beta\hat{H}_{\text{SC}})&=\exp(-\beta\hat{H}_{\text{S}}\otimes\ket{0}\bra{0})\exp(-\beta\hat{H}_{\text{S}}'\otimes\ket{1}\bra{1})\\
+  &=\exp(-\beta\hat{H}_{\text{S}})\otimes\ket{0}\bra{0}+\exp(-\beta\hat{H}_{\text{S}}')\otimes\ket{1}\bra{1}
 \end{align}
 となる. 
 

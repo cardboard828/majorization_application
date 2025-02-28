@@ -1,0 +1,45 @@
+
+
+2つの状態$\rho, \sigma\in\symcal{S}(\symcal{H})$の識別をPOVM$\{Q, (I-Q)\}$ですることを考える. 
+$Q$の測定値を0, $I-Q$の測定値を1とする. 
+$\rho$を帰無仮説, $\sigma$を対立仮説という. 
+測定値が0のとき$\rho$が真, 測定値が1のとき$\sigma$が真という. 
+前述のように完全な識別はできないので, それぞれ誤りがある. 
+本当は$\rho$が用意されたのに誤って$\sigma$が用意されたと判断する確率は
+\begin{equation}
+  \alpha(Q)\coloneqq\tr[(I-Q)\rho]
+\end{equation}
+で与えられ, これを\textbf{第一種誤り確率}という. 
+同じように考えて, 本当は$\sigma$が用意されたのに誤って$\rho$が用意されたと判断する確率は
+\begin{equation}
+  \beta(Q)\coloneqq \tr[Q\sigma]
+\end{equation}
+で与えられ, これを\textbf{第二種誤り確率}という. \\
+
+$\rho$が来たときに$\rho$と判断する成功確率$\tr[Q\rho]$を$0<\eta<1$以上にするという条件のもと, 第二種誤り確率可能な限り小さくする問題を考える. 
+このとき, 達成された最小値の対数をとり, これを量子仮説検定ダイバージェンスと呼ぶ. 
+\begin{mydfn}[量子仮説検定ダイバージェンス]
+  $0<\eta<1$ について量子仮説検定ダイバージェンス$S_{\text{H}}^\eta(\rho||\sigma)$を次のように定義する. 
+  \begin{equation}
+    S_{\text{H}}^\eta(\rho||\sigma)\coloneqq -\ln\left( \frac{1}{\eta}\min_{0\leq Q\leq I, \tr[\rho Q]\geq \eta} \tr[\sigma Q]\right)
+  \end{equation}
+\end{mydfn}
+
+詳細は省略するが, この仮説検定ダイバージェンスは定義\ref{dfn.smoothed_Renyi-alpha-div}で定義した平滑化したダイバージェンスと関連がある. 
+\begin{equation}
+  S_{\text{{H}}}^{\eta\simeq 1}(\rho||\sigma)\simeq S_0^{\varepsilon\simeq 0}(\rho||\sigma),\quad S_{\text{{H}}}^{\eta\simeq 0}(\rho||\sigma)\simeq S_\infty^{\varepsilon\simeq 0}(\rho||\sigma). 
+\end{equation}
+
+% \begin{table}[H]
+%   \centering\begin{tabular}{ccccc}
+%     用意された状態&測定値&確率&判定&正誤\\
+%     \hline
+%     $\rho$&\begin{tabular}{cccc}
+%       0&$\tr[Q\rho]$&$\rho$&正\\
+%       \hline
+%       1&$\tr[(I-Q)\rho]$&$\sigma$&第一種誤り
+%     \end{tabular}
+%   \end{tabular}
+%   \caption{量子仮説検定における誤り}
+%   \label{tab.hypothesis_testing}
+% \end{table}

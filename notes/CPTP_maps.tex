@@ -16,7 +16,7 @@
   \end{enumerate}
 \end{mydfn}
 
-参考のために, PositiveだがCPではない写像の例を挙げる. 
+参考のために, PositiveだがCPではない写像の例を挙げる. \\
 
 \begin{e.g.}[Positive but not CP]
   簡単のためにqubit空間$\symcal{H}_2$上で考える. 
@@ -29,8 +29,8 @@
   \end{equation}
   とかけることに注意すれば, 
   \begin{align}
-    I\otimes \symcal{E}_T(\rho_{\psi})=\ket{0}\bra{0}\otimes \ket{0}\bra{0}+\ket{0}\bra{1}\otimes \ket{1}\bra{0}+\ket{1}\bra{0}\otimes \ket{0}\bra{1}+\ket{1}\bra{1}\otimes \ket{1}\bra{1}
-    \stackrel{\cdot}{=}\begin{pmatrix}
+    I\otimes \symcal{E}_T(\rho_{\psi})&=\ket{0}\bra{0}\otimes \ket{0}\bra{0}+\ket{0}\bra{1}\otimes \ket{1}\bra{0}+\ket{1}\bra{0}\otimes \ket{0}\bra{1}+\ket{1}\bra{1}\otimes \ket{1}\bra{1}\\
+    &\stackrel{\cdot}{=}\begin{pmatrix}
       1 & & & \\
        & 0&1& \\
        & 1&0& \\
@@ -38,9 +38,8 @@
     \end{pmatrix}
   \end{align}
   となる. 
-  この行列の固有値は$1,1,1,-1$なので, 確かにこれはCPではない. 
+  この行列の固有値は$1,1,1,-1$なので, 確かにこれはCPではない. \\
 \end{e.g.}
-
 次にTP（Trace Preserving）を定義する. 
 
 \begin{mydfn}[TP写像]\label{dfn.TP-map}
@@ -72,4 +71,12 @@ CPTP写像には, 理解が深まる同値な表現がある.
 \end{proof}
 
 (b)は使い勝手の良い性質で, 写像がKraus演算子を使ってかけていたらそれは量子操作を記述するCPTP写像になっているとわかる. 
-(c)は物理的な意味をより明確にしてくれていて, 結局視野を環境系にまで広げれば知っているようにユニタリ時間発展をしていて, CPTP写像は環境系をトレースアウトした着目系の間の時間発展の記述をしているとわかる. 
+(c)は物理的な意味をより明確にしてくれていて, 結局視野を環境系にまで広げれば知っているようにユニタリ時間発展をしていて, CPTP写像は環境系をトレースアウトした着目系の間の時間発展の記述をしているとわかる. \\
+
+\begin{e.g.}
+  例えば, 部分トレースはCPTP写像になっている. 
+  部分トレースの定義\ref{dfn.partial_trace}の文字を流用する. 
+  $\symcal{H}_B$の正規直交基底を$\{\ket{b_i}\}$と書くことにして, $I$を$\symcal{H}_A$上の恒等演算子とする. 
+  $M_i\coloneqq I\otimes \bra{b_i}$とすると, $M_i^\dag=I\otimes \ket{b_i}$なのでこれはKraus演算子になっていて, 対応するCPTP写像は部分トレースそのものである. 
+  部分トレースがCPTP写像になっていることは後で使う. 
+\end{e.g.}

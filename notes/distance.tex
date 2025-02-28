@@ -31,4 +31,23 @@ $D(\rho_1,\rho_2)=\frac{1}{4}||(\vec{r_1}-\vec{r_2})\cdot\vec{\sigma}||_1=\frac{
 ここで, $\vec{n}$は単位ベクトルで, $\vec{n}\cdot\vec{\sigma}$は$\vec{n}$方向のスピン演算子であること, およびその固有値は$1, -1$であることを使った. 
 要は, 1-qubitで考えるとトレース距離はBlochベクトルの3次元Euclid距離（の半分）となっている. }
 を持っている. 
-しかし, 今回は省略する. 
+しかし, 今回は結構省略する. 
+その中でも後で使う\textbf{データ処理不等式}だけ紹介する. 
+\begin{mythm}[データ処理不等式]\label{thm.data-processing_inequality}
+  $\rho, \sigma\in\symcal{S}(\symcal{H})$, $\symcal{E}$をCPTP写像とする. 
+  このとき, 
+  \begin{equation}
+    D(\rho, \sigma)\geq D(\symcal{E}(\rho), \symcal{E}(\sigma)). 
+  \end{equation}
+\end{mythm}
+
+\begin{proof}
+  \cite{nielsen2010quantum}を参照. 
+\end{proof}
+
+これの意味するところは, 量子過程を経ると量子状態は「似てくる」より他ないということである. 
+これは直感的に納得できると思う. 
+ちなみにこのようにCPTP写像をかませることで単調に増えたり減ったりする性質をmonotonicityということもある. 
+つまり, トレース距離はmonotonicityを満たす. 
+
+
