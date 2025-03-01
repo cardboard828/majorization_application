@@ -2,8 +2,26 @@
 
 最後にAsymptoticな状況を考える. 
 これは後述の定義からわかるように熱力学極限に対応する操作をとることを意味している. 
-簡単に言えば, これまでは$\rho\in\symcal{\symcal{H}}$の表す1粒子状態しか考えていなかったが, この節では$\rho_n\in\symcal{S}(\symcal{H}^{\otimes n})$について考えた後$n\to\infty$の極限をとる, 多粒子における状況を考えてみる. 
+簡単に言えば, これまでは$\hat{\rho}\in\symcal{\symcal{H}}$の表す1粒子状態しか考えていなかったが, この節では$\hat{\rho}_n\in\symcal{S}(\symcal{H}^{\otimes n})$について考えた後$n\to\infty$の極限をとる, 多粒子における状況を考えてみる.
 
+$\hat{\rho}_n\in\symcal{S}(\symcal{H}_{\text{S}}^{\otimes n})$, $\hat{\rho}_n'\in\symcal{S}(\symcal{H}_{\text{S}}'^{\otimes n})$の列を$\widehat{P}_{\text{S}}\coloneqq \{\hat{\rho}_{\text{S}, n}\}_{n\in\N}$, $\widehat{P'}_{\text{S}}\coloneqq \{\hat{\rho}'_{\text{S}, n}\}_{n\in\N}$とする. 
+また, 対応するHamiltonianの列を$\widehat{H}_{\text{S}}\coloneqq \{\symcal{H}_{\text{S}}^{\otimes n}\}_{n\in\N}$, $\widehat{H'}_{\text{S}}\coloneqq \{\symcal{H}_{\text{S}}'^{\otimes n}\}_{n\in\N}$とする. 
+対応するGibbs状態の列を$\widehat{\Sigma}_{\text{S}}\coloneqq \{\hat{\rho}^{G}_{\text{S}, n}\}_{n\in\N}$, $\widehat{\Sigma '}_{\text{S}}\coloneqq \{\hat{\rho}^{G}_{\text{S}, n}{}'\}_{n\in\N}$とする. 
+さらに, 以下の極限が存在すると仮定しよう. 
+\begin{equation}
+  F_{\text{S}}\coloneqq\lim_{n\to\infty}\frac{1}{n}F_{\text{S}, n}, \quad F_{\text{S}}'\coloneqq\lim_{n\to\infty}\frac{1}{n}F'_{\text{S}, n}. 
+\end{equation}
+これを自由エネルギーレートという. 
+なお, $F_{\text{S}, n}$, $F'_{\text{S}, n}$はそれぞれ$\symcal{H}_{\text{S}}^{\otimes n}$, $\symcal{H}_{\text{S}}'^{\otimes n}$に対応するHelmholtzの自由エネルギーである. 
+$\Delta F_{\text{S}, n}\coloneqq F'_{\text{S}, n}-F_{\text{S}, n}$, $\Delta F_{\text{S}}\coloneqq F_{\text{S}}'-F_{\text{S}}$とする. 
+
+\begin{mydfn}[Asymptotic thermodynamic process]
+  列$\widehat{P}_{\text{S}}$は$\widehat{P'}_{\text{S}}$に$\widehat{H}_{\text{S}}$, $\widehat{H'}_{\text{S}}$について, 以下の条件を満たすときに, asymptotically $w$-assisted transformableという. 
+  \begin{itemize}
+    \item 列$\{w_n\}_{n\in\N}$と$\{\varepsilon_n\}_{n\in\N}$があって, それぞれ$w_n\in\R$, $\varepsilon_n>0$を満たし, $\hat{\rho}_{\text{S}, n}$は$\hat{\rho}'_{\text{S}, n}$に$\varepsilon_n$-approximate $w_n$-assisted transformableである. 
+    \item $\lim_{n\to\infty}w_n=w$かつ$\lim_{n\to\infty}=0$である. 
+  \end{itemize}
+\end{mydfn}
 
 
 
