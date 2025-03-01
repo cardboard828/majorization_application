@@ -4,14 +4,22 @@
 以下では$\rho, \sigma\in\symcal{S}(\symcal{H})$とする. 
 なお, $\rho$の台は常に$\sigma$の台に含まれているものとする. 
 
+まず, von Neumannエントロピーを以下のように定義する. 
 
-
-\begin{mydfn}[von Neumann エントロピー]\label{dfn.vonNeumannEntropy}
+\begin{mydfn}[von Neumannエントロピー]\label{dfn.vonNeumannEntropy}
   von Neumann エントロピー$S_1(\rho)$は次のように定義される. 
   \begin{equation}
     S_1(\rho)\coloneqq -\tr(\rho\ln{\rho})
   \end{equation}
 \end{mydfn}
+
+$\{p_i\}$を$\rho$の固有値を集めた集合だと思い, $\rho$をスペクトル分解したものをvon Neumannエントロピーの定義に代入すれば
+\begin{equation}
+  S_1(\rho)=-\sum_{i}p_i\ln{p_i}=S(p_i)
+\end{equation}
+となり, $\{p_i\}$のShannonエントロピーに一致する. 
+
+次に量子相対エントロピー（量子KLダイバージェンスとも呼ぶ）を定義する. 
 
 \begin{mydfn}[量子KLダイバージェンス]\label{dfn.KLdiv}
   量子KLダイバージェンス$S_1(\rho||\sigma)$は次のように定義される. 
@@ -21,6 +29,25 @@
   ここで$\rho$の台は$\sigma$のそれに包含されていると考える. 
   すなわち, $\Ker{\sigma}\subset \Ker{\rho}$とする.
 \end{mydfn}
+
+量子相対エントロピーは非負性を持つ. 
+
+\begin{mythm}[Kleinの不等式]
+  量子相対エントロピーは非負である. 
+  \begin{equation}
+    S_1(\rho||\sigma)\geq 0
+  \end{equation}
+  等号成立条件は$\rho=\sigma$である. 
+\end{mythm}
+
+\begin{proof}
+  \cite{nielsen2010quantum}を参照. 
+\end{proof}
+
+この定理から, 量子相対エントロピーを「距離っぽいもの」と考えたりもする. 
+
+この量子KLダイバージェンスの一つの一般化としてR\'{e}nyi-αダイバージェンスがある. 
+このpdfでは$\alpha=0, \infty$の場合しか使わないため, その2つの場合に限ったものを定義する. 
 
 \begin{mydfn}[R\'{e}nyi-αダイバージェンス]\label{dfn.Renyi-alpha-div}
   $\alpha=0, \infty$について, R\'{e}nyi-αダイバージェンス$S_{\alpha}(\rho||\sigma)$を以下のように定義する. 
@@ -48,6 +75,8 @@
   $\rho=\sigma$のとき, 定義\ref{dfn.Renyi-alpha-div}より$S_{\infty}(\rho||\sigma)=0$であり, かつ$\rho$と$\sigma$の台が等しい, つまり$S_0(\rho||\sigma)=0$なので, 不等式より$S_1(\rho||\sigma)=0$. 
   また, $S_{\infty}(\rho||\sigma)=0$のとき, つまり$\rho\leq\sigma$な訳だが, どちらもトレース1なので, $\rho=\sigma$となるしかない. 
 \end{proof}
+
+第\ref{chap.single-shot_quantumthermo}章で使う, さらに進んだ概念もここで定義しておく. 
 
 \begin{mydfn}[平滑化R\'{e}nyi 0/∞-ダイバージェンス]\label{dfn.smoothed_Renyi-alpha-div}
   $\rho\in\symcal{S}(\symcal{H})$の$\varepsilon$近傍を
@@ -77,5 +106,7 @@ ${\rho}_n, \sigma_n\in\symcal{S}(\symcal{H}^{\otimes n})$の列を$\widehat{P}\c
     \underline{S}(\widehat{P}||\widehat{\Sigma})&\coloneqq \lim_{\varepsilon\to +0}\liminf_{n\to\infty}\frac{1}{n}S_{0}^{\varepsilon}(\rho_n||\sigma_n)
   \end{align}
 \end{mydfn}
+
+これらの概念が変換可能性を特徴付ける量として後に登場する. 
 
 
