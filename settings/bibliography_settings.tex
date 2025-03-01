@@ -1,0 +1,13 @@
+\makeatletter
+\renewcommand{\thebibliography}[1]{%
+  \chapter*{参考文献}  % これでデフォルトの「参考文献」の代わりに chapter を使う
+  \list{\@biblabel{\arabic{enumiv}}}{%
+    \settowidth\labelwidth{\@biblabel{#1}}%
+    \leftmargin\labelwidth
+    \advance\leftmargin\labelsep
+    \usecounter{enumiv}%
+  }%
+  \def\newblock{\hskip .11em plus .33em minus .07em}%
+  \sloppy
+}
+\makeatother

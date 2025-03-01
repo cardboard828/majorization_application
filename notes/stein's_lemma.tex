@@ -1,0 +1,35 @@
+
+
+平滑化ダイバージェンスについてダイバージェンス・レートを考えたように, この仮説検定ダイバージェンスについても仮説検定ダイバージェンス・レートを定義する. 
+
+\begin{mydfn}
+  ${\rho}_n, \sigma_n\in\symcal{S}(\symcal{H}^{\otimes n})$の列を$\widehat{P}\coloneqq \{{\rho}_{n}\}_{n\in\N}$, $\widehat{\Sigma}\coloneqq \{\sigma_{n}\}_{n\in\N}$とする. 
+  \begin{equation}
+    S_{\text{H}}^{\eta}(\widehat{P}||\widehat{\Sigma})\coloneqq \lim_{n\to\infty}\frac{1}{n}S_{\text{H}}^{\eta}(\rho_n||\sigma_n). 
+  \end{equation}
+\end{mydfn}
+
+この仮設検定ダイバージェンスについて, 量子Steinの補題というときは大抵次のような命題になっている. 
+\begin{myprop}[量子Steinの補題]
+  （${\rho}_n, \sigma_n\in\symcal{S}(\symcal{H}^{\otimes n})$についての条件）について, 任意の$0<\eta<1$について
+  \begin{equation}
+    S_{\text{H}}^{\eta}(\widehat{P}||\widehat{\Sigma})=S_1(\widehat{P}||\widehat{\Sigma})
+  \end{equation}
+  が成立. 
+\end{myprop}
+条件のところには, 例えばi.i.d.条件\footnote{Independent and Identically Distributed, i.i.d.の場合の量子Steinの補題の証明は例えば\cite{bjelakovic2012quantumsteinslemmarevisited}が易しい. }（$\rho_n$=$\rho^{\otimes n}$, $\sigma_n$=$\sigma^{\otimes n}$） などが入る. 
+この命題は, 量子仮説検定についての最適化問題を特徴付ける量の極限を取ったら, エントロピー的な量が出てくるという意味で, 量子KLダイバージェンスに操作論的な意味づけを与えていて, そのものとして興味深い. 
+加えて, この命題が成り立つことと, upperダイバージェンス・レート, lowerダイバージェンス・レートが同じ値になることとは同値であることが知られている. 
+\begin{myprop}\label{prop.Stein's_lemma_v.s._AEP}
+  量子Steinの補題が成立することの必要十分条件は
+  \begin{equation}
+    \underline{S}(\widehat{P}||\widehat{\Sigma})=\bar{S}(\widehat{P}||\widehat{\Sigma})=S_1(\widehat{P}||\widehat{\Sigma})
+  \end{equation}
+\end{myprop}
+
+\begin{proof}[雰囲気]
+  式\eqref{eq.hypothesis-div_Renyi-alpha-div}と任意の$\eta$でのところで片側はなんとなくわかる. 
+  もう片側はupperダイバージェンス・レートがlowerダイバージェンス・レート以上であることを使えばいけそう. 
+\end{proof}
+
+

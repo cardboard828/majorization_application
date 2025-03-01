@@ -17,6 +17,14 @@
     odd_running_head=_chapter
   }
 
+  \NewPageStyle{appendix}{
+    nombre_font={\fontencoding{T1}\fontfamily{pcr}\fontseries{b}\fontshape{n}\selectfont}, 
+    running_head_position=top-left,
+    mark_format={_chapter={付録\thechapter \quad #1}},
+    odd_head_format={\underline{\makebox[\jlreqyokoheadlength]{#1}}}, 
+    odd_running_head=_chapter
+  }
+
   \NewPageStyle{TOC}{
     nombre_font={\fontencoding{T1}\fontfamily{pcr}\fontseries{b}\fontshape{n}\selectfont}, 
   }

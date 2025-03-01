@@ -61,3 +61,21 @@
     S_{0}^{\varepsilon}(\rho||\sigma)&\coloneqq \max_{\tau\in B^{\varepsilon}(\rho)}S_{0}(\tau||\sigma). \label{dfn.smoothed_Renyi_0_div}
   \end{align}
 \end{mydfn}
+
+${\rho}_n, \sigma_n\in\symcal{S}(\symcal{H}^{\otimes n})$の列を$\widehat{P}\coloneqq \{{\rho}_{n}\}_{n\in\N}$, $\widehat{\Sigma}\coloneqq \{\sigma_{n}\}_{n\in\N}$とする.
+上で定義したKLダイバージェンス, 平滑化ダイバージェンスを使って, 以下のようなダイバージェンス・レートを定義する. 
+
+\begin{mydfn}[Quantum spectral divergence rates]\label{dfn.Quantum_spectral_divergence_rates}
+  KLダイバージェンス・レートを以下のように定義する. 
+  \begin{equation}
+    S_1(\widehat{P}||\widehat{\Sigma})\coloneqq \lim_{n\to\infty}\frac{1}{n}S_1(\rho_n||\sigma_n)
+  \end{equation}
+  なお, この極限が必ず存在するとは限らない. 
+  upperダイバージェンス・レート, lowerダイバージェンス・レートはそれぞれ以下のように定義される. 
+  \begin{align}
+    \bar{S}(\widehat{P}||\widehat{\Sigma})&\coloneqq \lim_{\varepsilon\to +0}\limsup_{n\to\infty}\frac{1}{n}S_{\infty}^{\varepsilon}(\rho_n||\sigma_n)\\
+    \underline{S}(\widehat{P}||\widehat{\Sigma})&\coloneqq \lim_{\varepsilon\to +0}\liminf_{n\to\infty}\frac{1}{n}S_{0}^{\varepsilon}(\rho_n||\sigma_n)
+  \end{align}
+\end{mydfn}
+
+

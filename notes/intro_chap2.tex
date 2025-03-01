@@ -1,0 +1,22 @@
+導入のために, 二つの直交しているとは限らない状態$\ket{a}$, $\ket{b}$を識別する問題を考えよう. 
+測定を使って初めて量子状態の持つ情報にアクセスできるので, 測定することで識別しようとする. 
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!white]
+    POVMを定義した後の例で触れた二値POVMを使って, $Q$が測定されたら量子状態は$\ket{a}$, $I-Q$が測定されたら$\ket{b}$と判断することにしよう.
+    上手いPOVMが存在して, 二つの状態は必ず識別可能か？
+    すなわち, $\bra{a}Q\ket{a}=1$, $\bra{b}(I-Q)\ket{b}=1$なる$0< Q < I$はあるか？
+\end{tcolorbox}
+
+\begin{proof}[検証]   
+    存在すると仮定. 
+    $\bra{a}I\ket{a}=1$より$\bra{a}(I-Q)\ket{a}=0$. 
+    従って$\sqrt{I-Q}\ket{a}=0$. 
+    $\ket{b}=\alpha\ket{a}+\gamma\ket{c}$（$\ket{c}$は$\ket{a}$と直交する規格化されたベクトル）と$\ket{b}$を展開する. 
+    $\ket{a}, \ket{b}$も規格化されているので$|\alpha|^2+|\gamma|^2=1$. 
+    条件の$\bra{b}(I-Q)\ket{b}=1$より$1=\bra{b}\sqrt{I-Q}\sqrt{I-Q}(\alpha\ket{a}+\gamma\ket{c})=|\gamma|^2$となるが, 規格化条件より$\alpha=0$のときのみ成立. 
+    よって$\ket{a}, \ket{b}$が直交しているときは良いPOVMはあるが, それ以外の場合は誤差なし識別は不可能. 
+\end{proof}
+
+つまり, 用意された二つの状態すら一般には完全な識別は不可能！
+これは古典にはない量子の非自明な部分だ. 
+この章では一番基本的な, 用意された二つの状態を識別する, というタスクについて少し掘り下げる. 

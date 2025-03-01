@@ -23,5 +23,62 @@ $\Delta F_{\text{S}, n}\coloneqq F'_{\text{S}, n}-F_{\text{S}, n}$, $\Delta F_{\
   \end{itemize}
 \end{mydfn}
 
+これまでと同じように, asymptotically $w$-assisted transformableであるための必要条件/十分条件を与える定理がある. 
+これは今度は定義\ref{dfn.Quantum_spectral_divergence_rates}にあるダイバージェンス・レートで特徴づけられる. 
+
+\begin{mythm}\label{thm.asymptotic-case_single-shot_work_bounds}
+  記号の定義は前述の通りとする. 
+  \begin{enumerate}
+    \item[(a)]（必要条件）: $\widehat{P}_{\text{S}}$が$\widehat{P'}_{\text{S}}$に$\widehat{H}_{\text{S}}$, $\widehat{H'}_{\text{S}}$についてasymptotically $w$-assisted transformableならば, 
+    \begin{align}
+      \beta(w-\Delta F_{\text{S}})&\geq \underline{S}(\widehat{P'}_{\text{S}}||\widehat{\Sigma '}_{\text{S}})-\underline{S}(\widehat{P}_{\text{S}}||\widehat{\Sigma}_{\text{S}})\\
+      \beta(w-\Delta F_{\text{S}})&\geq \bar{S}(\widehat{P'}_{\text{S}}||\widehat{\Sigma '}_{\text{S}})-\bar{S}(\widehat{P}_{\text{S}}||\widehat{\Sigma}_{\text{S}})
+    \end{align}
+    が成立. 
+    \item[(b)]（十分条件）: $\widehat{P}_{\text{S}}$, $\widehat{P'}_{\text{S}}$について
+    \begin{equation}
+      \beta(w-\Delta F_{\text{S}})\geq \bar{S}(\widehat{P'}_{\text{S}}||\widehat{\Sigma '}_{\text{S}}) - \underline{S}(\widehat{P}_{\text{S}}||\widehat{\Sigma}_{\text{S}})
+    \end{equation}
+    ならば, $\widehat{P}_{\text{S}}$が$\widehat{P'}_{\text{S}}$に$\widehat{H}_{\text{S}}$, $\widehat{H'}_{\text{S}}$についてasymptotically $w$-assisted transformableである. 
+  \end{enumerate}
+\end{mythm}
+
+\begin{proof}
+  \cite{SagawaEntropy}参照, といいつつ私は(b)の方は証明を完全に埋められてはいない. 
+\end{proof}
+
+これまで, Exact Case, Approximate Case, Asymptotic Case全てで変換可能性の必要条件, 十分条件を与えてきた. 
+しかしこれは微妙に不満が残る. 
+というのも, 必要条件は満たすが十分条件を満たさない状態の組の変換可能性をサポートできていないからである. 
+
+上の定理\ref{thm.asymptotic-case_single-shot_work_bounds}を見れば, 次の系が従うことがわかる. 
+
+\begin{mycor}
+  $\underline{S}(\widehat{P}_{\text{S}}||\widehat{\Sigma}_{\text{S}})=\bar{S}(\widehat{P}_{\text{S}}||\widehat{\Sigma }_{\text{S}})\eqqcolon{S}(\widehat{P}_{\text{S}}||\widehat{\Sigma}_{\text{S}})$かつ$\underline{S}(\widehat{P'}_{\text{S}}||\widehat{\Sigma '}_{\text{S}})=\bar{S}(\widehat{P'}_{\text{S}}||\widehat{\Sigma '}_{\text{S}})\eqqcolon{S}(\widehat{P'}_{\text{S}}||\widehat{\Sigma '}_{\text{S}})$であるとき, 
+  $\widehat{P}_{\text{S}}$が$\widehat{P'}_{\text{S}}$に$\widehat{H}_{\text{S}}$, $\widehat{H'}_{\text{S}}$についてasymptotically $w$-assisted transformableであるための必要十分条件は
+  \begin{equation}
+    \beta(w-\Delta F_{\text{S}})\geq {S}(\widehat{P'}_{\text{S}}||\widehat{\Sigma '}_{\text{S}}) - {S}(\widehat{P}_{\text{S}}||\widehat{\Sigma}_{\text{S}})
+  \end{equation}
+\end{mycor}
+
+これで, 条件を満たすような系についてではあるが, 変換可能性についての必要十分条件が得られた！
+つまり, 変換可能性が気になったときには上の不等式が成立するかどうかで判断できる. 
+
+それではその条件を満たすかはどう気にすれば良いか？
+それには命題\ref{prop.Stein's_lemma_v.s._AEP}を使えば良い. 
+つまり変換前, 変換後についてそれぞれ量子Steinの補題が成立するかどうかを見れば良い. 
+例えばi.i.d.のセッティング\footnote{例えば理想気体の系はi.i.d.である. i.i.d.の系は相互作用の無い系になっている. }では量子Steinの補題が成立するので, 以下の系が従う. 
+
+\begin{mycor}
+  $\widehat{P}_{\text{S}}$, $\widehat{P'}_{\text{S}}$が共にi.i.d., つまり$\widehat{P}_{\text{S}}=\{\rho_{\text{S}}^{\otimes n}\}_{n\in\N}$, $\widehat{P'}_{\text{S}}=\{\rho_{\text{S}}^{\otimes n}\}_{n\in\N}$,
+  $\widehat{P}_{\text{S}}$が$\widehat{P'}_{\text{S}}$に$\widehat{H}_{\text{S}}$, $\widehat{H'}_{\text{S}}$についてasymptotically $w$-assisted transformableであるための必要十分条件は
+  \begin{equation}
+    \beta(w-\Delta F_{\text{S}})\geq {S}(\widehat{P'}_{\text{S}}||\widehat{\Sigma '}_{\text{S}}) - {S}(\widehat{P}_{\text{S}}||\widehat{\Sigma}_{\text{S}})
+  \end{equation}
+\end{mycor}
+
+以上のようにして, 量子情報的な視座から熱力学的なエントロピーが得られることがわかった. 
+i.i.d.よりもっと広い状態についても量子Steinの補題を経由することで同じような議論が展開できるが, 私はまだよくわかっていない（\cite{SagawaEntropy}の7.3章などに相当する. ）. 
+
 
 

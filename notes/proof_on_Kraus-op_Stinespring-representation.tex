@@ -1,0 +1,66 @@
+
+このAppendixでは定理\ref{thm.CPTP-map}の証明をする. 
+
+\section*{・$(a)\implies (b)$}
+  元のシステムを$Q$, このシステムと次元が同じシステムを$R$とし, $\{\ket{i_Q}\}$, $\{\ket{i_R}\}$をそれぞれの正規直交基底とする. 
+  $\ket{\alpha}\coloneqq \sum\ket{i_R}\ket{i_Q}$とする. 
+  さらに$\sigma\coloneqq (I_R\otimes\symcal{E})\ket{\alpha}\bra{\alpha}$とする. 
+  $\ket{\psi}=\sum\psi_j\ket{j_Q}$を$Q$の任意の状態とする. 
+  $\ket{\tilde{\psi}}=\sum\psi_j^*\ket{j_Q}$とすると, 
+  \begin{align}
+    \bra{\tilde{\psi}}\sigma\ket{\tilde{\psi}}&=\Big(\sum_{i}\psi_i\bra{i_R}\Big)I_R\otimes\symcal{E}\sum_{j,k}\ket{j_R}\ket{j_Q}\bra{k_R}\bra{k_Q}\Big(\sum_{l}\psi_l^*\ket{l_R}\Big)\\
+    &=\symcal{E}\Big(\sum_{j,k}\psi_j\ket{j_Q}\bra{k_Q}\psi_k^*\Big)\\
+    &=\symcal{E}(\ket{\psi}\bra{\psi})
+  \end{align}
+  となる. 
+  さらに, $\sigma$をスペクトル分解して$\sigma=\sum_i\ket{s_i}\bra{s_i}$とかく（$\ket{s_i}$は必ずしも正規化されていない）. 
+  ここで, 写像$M_i:\symcal{L}(\symcal{H_Q})\to\symcal{L}(\symcal{H_Q})$を$M_i(\ket{\psi})\coloneqq\braket{\tilde{\psi}|s_i}$とすると, 
+  \begin{align}
+    \sum_i M_i\ket{\psi}\bra{\psi}M_i^{\dag}&=\sum \braket{\tilde{\psi}|s_i}\braket{s_i|\tilde{\psi}}\\
+    &=\bra{\tilde{\psi}}\Big(\sum\ket{s_i}\bra{s_i}\Big)\ket{\tilde{\psi}}=\symcal{E}(\ket{\psi}\bra{\psi})
+  \end{align}
+  CPTP写像の線型性を使えば純粋状態に限らず一般の$\rho$についてもKrausオペレーターがこれで構成できている. 
+  さらにTPであることから, 任意の$\ket{\psi}$について
+  \begin{equation}
+    \tr\Big(\sum_i M_i\ket{\psi}\bra{\psi}M_i^\dag\Big)=\sum_i\tr\big(M_i^\dag M_i\ket{\psi}\bra{\psi}\big)=1
+  \end{equation}
+  が成立するので, $\sum_i M_i^\dag M_i=I$となる. 
+
+\section*{・$(b)\implies (c)$}
+  $\sum_{k=1}^d M_k^\dag M_k=I$について, 正規直交基底$\{\ket{e_i}\}$で張られる$d$次元の補助システム（ancilla）を用意する. 
+  $\symcal{H}_{\text{sys}}\otimes \symcal{H}_a$上のオペレータを$A$として, この$A$を
+  \begin{equation}
+    M_k=\bra{e_k}A\ket{e_0}
+  \end{equation}
+  となるようにとる. 
+  すると, 
+  \begin{equation}
+    \sum_{k=1}^d M_k^\dag M_k=\sum_{k=1}^{d}\bra{e_0}A^\dag\ket{e_k}\bra{e_k}A\ket{e_0}=\bra{e_0}A^\dag\big(\sum_{k=1}^d\ket{e_k}\bra{e_k}\big)A\ket{e_0}=\bra{e_0}A^\dag A\ket{e_0}=I
+  \end{equation}
+  となるべきなので, 特に$A$をUnitaryに取れば良いとわかる\footnote{$A$の自由度は$2\times d^4$, $d$個の$M_k$になるべき条件は$2d^2\times d$個なので残りの自由度は$2d^4-2d^3=2d^3(d-1)$個. $A$がUnitaryになるとき$d^4$個の条件式が出てくるが, 自由度は$2d^3(d-1)-d^4=d^3(d-2)$と計算され, $d\geq 2$であればうまく$U$は取れると思われる. }. 
+  この$A$を$U$と書くことにすると, CPTP写像は
+  \begin{align}
+    \symcal{E}(\rho)=\sum_{k=1}^d M_k\rho M_k^\dag&=\sum \bra{e_k}U\ket{e_0}\rho\bra{e_0}U^\dag \ket{e_k}\\
+    &=\sum_{k}\bra{e_k}\Big(U\rho\otimes \ket{e_0}\bra{e_0}U^\dag\Big)\ket{e_k}
+    =\tr_{a}\Big(U\rho\otimes \ket{e_0}\bra{e_0}U^\dag\Big)
+  \end{align}
+  とかける. 
+  この$\ket{e_0}\bra{e_0}$が$\sigma$に対応する. 
+
+\section*{・$(c)\implies (a)$}
+  写像$\symcal{F}:\rho\to\rho\otimes\sigma$と（Unitary演算と）部分トレース$\tr_a$がそれぞれCPTP写像であることを示せば良い
+  \footnote{CPTP写像の合成はCPTPか？入力がPositiveなら$\symcal{E}(\rho)$もpositive, よって出力もPositive, さらに入力がPositiveなら$\symcal{E}\otimes I(\rho)$もPositive, よって$\symcal{F}\circ\symcal{E}$はCPTPである. 
+  $\symcal{F}\circ\symcal{E}(\rho)=\symcal{F}(\sum_{i=1}^mE_i\rho E_i^\dag)=\sum_{j=1}^n F_j\sum_{i=1}^m E_i\rho E_i^\dag F_j^\dag=\sum_{i,j}(F_jE_i)\rho(F_jE_i)^\dag$とかけ, さらに$\sum_{i,j}(F_jE_i)^\dag (F_jE_i)=\sum_{j}F_j\sum_{i}E_iE_i^\dag F_j^\dag=\sum_j F_j F_j^\dag=I$となり, Kraus表現を持つのでCPTPとも言える（これが合法なのは定理\ref{thm.CPTP-map}を示せてからだとは思うけど）. }. 
+  $\symcal{F}$は明らかにCPTPである. 
+  というのも, $\rho\otimes\sigma$は密度演算子, よってPositiveだし, 例え$\rho$がシステムと環境の複合系の元でも$\symcal{F}\otimes \symcal{I}$は$\sigma$をくっつけるだけなので, 多分大丈夫. 
+
+  $\tr_a$は, 
+  \begin{equation}
+    \symcal{E}(\rho)=\tr_a\Big(U\rho\otimes\ket{e_0}\bra{e_0}U^\dag\Big)=\sum_{k=1}^d\bra{e_k}U\ket{e_0}\rho\bra{e_0}U^\dag\ket{e_k}=\sum_{k=1}^dM_k\rho M_k^\dag
+  \end{equation}
+  とかけ, これは$\rho$がPositiveなのでPositiveである. 
+  さらに$\symcal{E}\otimes \symcal{I}$は
+  \begin{equation}
+    \symcal{E}\otimes \symcal{I}(\rho)=\sum M_k \otimes I\rho M_k^\dag\otimes I
+  \end{equation}
+  とかけるが, 同じ理由でこれもPositiveである. 

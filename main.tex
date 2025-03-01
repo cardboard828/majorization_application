@@ -8,6 +8,8 @@
 \author{森}
 \date{\today}
   
+\subimport{settings/}{bibliography_settings.tex}
+
 \begin{document}
 \maketitle
 
@@ -15,14 +17,10 @@
 \thispagestyle{TOC}
 \tableofcontents
 
-
 \pagestyle{mystyle}
+
 \chapter{量子情報の枠組みミニマム}\label{chap.quantum_info_basic}
-まず量子情報分野の基本的なルールについて, 以降の章で使うものについて簡単な説明をする. 
-基本的に有限次元の量子力学が舞台になっている. 
-主に\cite{nielsen2010quantum}, \cite{SagawaEntropy}を参考にした. 
-怪しげなことを書いていたら教えて欲しいです. 
-あと「演算子」, 「オペレータ」は適宜「行列」にでも読み替えてもらって大丈夫です. 
+\subimport{notes/}{intro_chap1.tex}
 \section{状態}
 \subimport{notes/}{states.tex}
 \section{合成系}
@@ -39,40 +37,16 @@
 \subimport{notes/}{entropy.tex}
 
 \chapter{量子仮説検定}
-導入のために, 二つの直交しているとは限らない状態$\ket{a}$, $\ket{b}$を識別する問題を考えよう. 
-測定を使って初めて量子状態の持つ情報にアクセスできるので, 測定することで識別しようとする. 
-
-\begin{tcolorbox}[colback=black!5!white,colframe=black!75!white]
-    POVMを定義した後の例で触れた二値POVMを使って, $Q$が測定されたら量子状態は$\ket{a}$, $I-Q$が測定されたら$\ket{b}$と判断することにしよう.
-    上手いPOVMが存在して, 二つの状態は必ず識別可能か？
-    すなわち, $\bra{a}Q\ket{a}=1$, $\bra{b}(I-Q)\ket{b}=1$なる$0< Q < I$はあるか？
-\end{tcolorbox}
-
-\begin{proof}[検証]   
-    存在すると仮定. 
-    $\bra{a}I\ket{a}=1$より$\bra{a}(I-Q)\ket{a}=0$. 
-    従って$\sqrt{I-Q}\ket{a}=0$. 
-    $\ket{b}=\alpha\ket{a}+\gamma\ket{c}$（$\ket{c}$は$\ket{a}$と直交する規格化されたベクトル）と$\ket{b}$を展開する. 
-    $\ket{a}, \ket{b}$も規格化されているので$|\alpha|^2+|\gamma|^2=1$. 
-    条件の$\bra{b}(I-Q)\ket{b}=1$より$1=\bra{b}\sqrt{I-Q}\sqrt{I-Q}(\alpha\ket{a}+\gamma\ket{c})=|\gamma|^2$となるが, 規格化条件より$\alpha=0$のときのみ成立. 
-    よって$\ket{a}, \ket{b}$が直交しているときは良いPOVMはあるが, それ以外の場合は誤差なし識別は不可能. 
-\end{proof}
-
-つまり, 用意された二つの状態すら一般には完全な識別は不可能！
-これは古典にはない量子の非自明な部分だ. 
-この章では一番基本的な, 用意された二つの状態を識別する, というタスクについて少し掘り下げる. 
+\subimport{notes/}{intro_chap2.tex}
 
 \section{状況設定}
 \subimport{notes/}{quantum_hypothesis_testing.tex}
 % \section{量子Neyman-Pearson検定}
-% \section{漸近論と量子相対エントロピー}
+\section{漸近論と量子Steinの補題}
+\subimport{notes/}{stein's_lemma.tex}
 
 \chapter{Single-Shotの量子熱力学}
-この章では\ref{chap.quantum_info_basic}章で導入した概念を使って, 量子熱力学の文脈でのSingle-Shotの変換理論の話をする. 
-Single-Shotの変換理論とは, 「ある状態を持っていて, それを別の状態に, 特定のクラスの操作で変換できるかどうか」を考える理論のことを指す（と思う）
-\footnote{田﨑熱力学で強調されていることだが, （古典）熱力学においてエントロピーは状態間の断熱変化可能性を完全に特徴づけていた. 
-すなわち, 断熱操作の元で系のエントロピーは増加するし, エントロピーが増加するような状態であればうまい断熱操作が存在してその状態を作ることができる. }. 
-この問題を考えることで, 状態遷移に必要な仕事の下界や, 遷移に伴って得られるエネルギーの上界を得ることができる. 
+\subimport{notes/}{intro_chap3.tex}
 
 \section{状況設定}\label{sec.Single-Shot_quantumthermo}
 \subimport{notes/}{Single-Shot_quantumthermo.tex}
@@ -84,22 +58,13 @@ Single-Shotの変換理論とは, 「ある状態を持っていて, それを�
 \subimport{notes/}{asymptotic_case.tex}
 
 
+\pagestyle{appendix}
+
 \appendix
 \chapter{CPTP写像の3つの表現の同値性の証明}
+\subimport{notes/}{proof_on_Kraus-op_Stinespring-representation.tex}
   
-\begin{thebibliography}{99}
-\bibitem{nielsen2010quantum}Michael A Nielsen and Isaac L Chuang. 
-    \textit{Quantum computation and quantum information}.
-    Cambridge university press, 2010.
-\bibitem{SagawaEntropy}Takahiro Sagawa. 
-    \textit{Entropy, Divergence, and Majorization in Classical and Quantum Thermodynamics}. 
-    Springer Singapore, 2022.
-\bibitem{SagawaSaizensen}沙川貴大
-    「非平衡統計力学 -ゆらぎの熱力学から情報熱力学まで-」
-    共立出版, 2022. 
-\bibitem{PhysLabResource}渡邉開人
-    「Physics Lab. 2023 熱力学とリソース」
-    \url{https://event.phys.s.u-tokyo.ac.jp/physlab2023/pdf/sta-article01.pdf}
-\end{thebibliography}
+\pagestyle{TOC}
+\subimport{notes/}{sankobunken.tex}
   
 \end{document}
